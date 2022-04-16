@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import './dummy_data.dart';
+import './models/meal.dart';
+import './screens/category_meals_screen.dart';
 import './screens/categories_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  List<Meal> _availableMeals = DUMMY_MEALS;
+
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -31,7 +35,25 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.bold,
             )),
       ),
-      home: CategoriesScreen(),
+      routes: {
+        '/': (ctx) => CategoriesScreen(),
+        CategoryMealsScreen.routeName: (ctx) =>
+            CategoryMealsScreen(_availableMeals),
+      },
+      onGenerateRoute: (settings) {
+        print(settings.arguments);
+        // if (settings.name == '/meal-detail') {
+        //   return ...;
+        // } else if (settings.name == '/something-else') {
+        //   return ...;
+        // }
+        // return MaterialPageRoute(builder: (ctx) => CategoriesScreen(),);
+      },
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (ctx) => CategoriesScreen(),
+        );
+      },
     );
   }
 }
