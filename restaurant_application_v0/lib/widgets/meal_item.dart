@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/meal.dart';
+import '../screens/meal_detail_screen.dart';
 
 class MealItem extends StatelessWidget {
   final String id;
@@ -50,13 +51,24 @@ class MealItem extends StatelessWidget {
         return 'Unknown';
     }
   }
-//
+  void selectMeal(BuildContext context) {
+    Navigator.of(context)
+        .pushNamed(
+      MealDetailScreen.routeName,
+      arguments: id,
+    )
+        .then((result) {
+      if (result != null) {
+        // removeItem(result);
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      //
-      onTap: () {},
+      
+      onTap: () => selectMeal(context),
       child: Card(
         color: Colors.black,
         shape: RoundedRectangleBorder(
