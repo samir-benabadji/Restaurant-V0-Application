@@ -10,7 +10,7 @@ class CategoryItem extends StatelessWidget {
 
   CategoryItem(this.id, this.title, this.color, this.imageUrl);
 
-void selectCategory(BuildContext ctx) {
+  void selectCategory(BuildContext ctx) {
     Navigator.of(ctx).pushNamed(
       CategoryMealsScreen.routeName,
       arguments: {
@@ -25,7 +25,6 @@ void selectCategory(BuildContext ctx) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(15),
       child: InkWell(
-        //
         onTap: () => selectCategory(context),
         splashColor: Theme.of(context).primaryColor,
         borderRadius: BorderRadius.circular(15),
