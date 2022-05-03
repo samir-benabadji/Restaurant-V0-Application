@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../screens/meal_detail_screen.dart';
 import '../models/meal.dart';
@@ -75,7 +76,7 @@ class MealItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
         elevation: 4,
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         child: Column(
           children: <Widget>[
             Stack(
@@ -87,7 +88,7 @@ class MealItem extends StatelessWidget {
                   ),
                   child: Image.network(
                     imageUrl,
-                    height: 250,
+                    height: Get.height * 0.3,
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
@@ -96,7 +97,7 @@ class MealItem extends StatelessWidget {
                   bottom: 20,
                   right: 10,
                   child: Container(
-                    width: 300,
+                    width: Get.height * 0.35,
                     decoration: BoxDecoration(
                         color: Colors.white60,
                         borderRadius: BorderRadius.circular(20)),
@@ -126,14 +127,14 @@ class MealItem extends StatelessWidget {
                     children: <Widget>[
                       Icon(
                         Icons.schedule,
-                        color: Color(0xff044404),
+                        color: Colors.indigo,
                       ),
                       SizedBox(
-                        width: 6,
+                        width: Get.width * 0.025,
                       ),
                       Text(
                         '$duration min',
-                        style: TextStyle(color: Color(0xff044404)),
+                        style: TextStyle(color: Colors.indigo),
                       ),
                     ],
                   ),
@@ -141,14 +142,14 @@ class MealItem extends StatelessWidget {
                     children: <Widget>[
                       Icon(
                         Icons.work,
-                        color: Color(0xff044404),
+                        color: Colors.indigo,
                       ),
                       SizedBox(
-                        width: 6,
+                        width: Get.width * 0.025,
                       ),
                       Text(
                         complexityText,
-                        style: TextStyle(color: Color(0xff044404)),
+                        style: TextStyle(color: Colors.indigo),
                       ),
                     ],
                   ),
@@ -156,14 +157,14 @@ class MealItem extends StatelessWidget {
                     children: <Widget>[
                       Icon(
                         Icons.attach_money,
-                        color: Color(0xff044404),
+                        color: Colors.indigo,
                       ),
                       SizedBox(
-                        width: 6,
+                        width: Get.width * 0.025,
                       ),
                       Text(
                         affordabilityText,
-                        style: TextStyle(color: Color(0xff044404)),
+                        style: TextStyle(color: Colors.indigo),
                       ),
                     ],
                   ),

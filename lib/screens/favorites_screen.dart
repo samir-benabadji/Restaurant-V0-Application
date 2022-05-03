@@ -14,7 +14,7 @@ class FavoritesScreen extends StatelessWidget {
       return Center(
         child: Text(
           'You have no favorites yet - start adding some!',
-          style: TextStyle(color: Colors.white54),
+          style: TextStyle(color: Colors.white54, fontSize: 16),
         ),
       );
     } else {

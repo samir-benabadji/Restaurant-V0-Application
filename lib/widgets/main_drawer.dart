@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../screens/filters_screen.dart';
 
@@ -8,7 +9,7 @@ class MainDrawer extends StatelessWidget {
       leading: Icon(
         icon,
         size: 26,
-        color: Color(0xff044404),
+        color: Colors.indigo,
       ),
       title: Text(
         title,
@@ -16,7 +17,7 @@ class MainDrawer extends StatelessWidget {
           fontFamily: 'RobotoCondensed',
           fontSize: 24,
           fontWeight: FontWeight.bold,
-          color: Color(0xff044404),
+          color: Colors.indigo,
         ),
       ),
       onTap: tapHandler,
@@ -26,25 +27,25 @@ class MainDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Color.fromARGB(255, 0, 0, 0),
+      backgroundColor: Colors.black,
       child: Column(
         children: <Widget>[
           Container(
-            height: 120,
+            height: Get.height * 0.15,
             width: double.infinity,
             padding: EdgeInsets.all(20),
             alignment: Alignment.centerLeft,
-            color: Colors.white10,
+            color: Colors.indigo,
             child: Text(
-              'Cooking Up!',
+              'Drawer Menu',
               style: TextStyle(
                   fontWeight: FontWeight.w900,
                   fontSize: 30,
-                  color: Color(0xff044404)),
+                  color: Colors.black),
             ),
           ),
           SizedBox(
-            height: 20,
+            height: Get.height * 0.025,
           ),
           buildListTile('Meals', Icons.restaurant, () {
             Navigator.of(context).pushReplacementNamed('/');

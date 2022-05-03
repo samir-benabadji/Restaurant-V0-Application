@@ -38,8 +38,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
     return SwitchListTile(
       title: Text(
         title,
-        style: TextStyle(
-            color: Color.fromARGB(255, 9, 105, 9), fontWeight: FontWeight.bold),
+        style: TextStyle(color: Colors.indigo, fontWeight: FontWeight.bold),
       ),
       value: currentValue,
       subtitle: Text(
@@ -54,17 +53,17 @@ class _FiltersScreenState extends State<FiltersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Color(0xff044404)),
+        iconTheme: IconThemeData(color: Colors.indigo),
         backgroundColor: Colors.black,
         title: Text(
           'Your Filters',
-          style: TextStyle(color: Color(0xff044404)),
+          style: TextStyle(color: Colors.indigo),
         ),
         actions: <Widget>[
           IconButton(
             icon: Icon(
               Icons.save,
-              color: Color(0xff044404),
+              color: Colors.indigo,
             ),
             onPressed: () {
               final selectedFilters = {
@@ -88,7 +87,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
               style: Theme.of(context)
                   .textTheme
                   .subtitle1
-                  .copyWith(color: Color(0xff044404)),
+                  .copyWith(color: Colors.indigo),
             ),
           ),
           Expanded(

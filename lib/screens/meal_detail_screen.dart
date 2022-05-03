@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../dummy_data.dart';
 
@@ -18,7 +19,7 @@ class MealDetailScreen extends StatelessWidget {
         style: Theme.of(context)
             .textTheme
             .subtitle1
-            .copyWith(color: Color(0xff044404)),
+            .copyWith(color: Colors.indigo),
       ),
     );
   }
@@ -32,8 +33,8 @@ class MealDetailScreen extends StatelessWidget {
       ),
       margin: EdgeInsets.all(10),
       padding: EdgeInsets.all(10),
-      height: 150,
-      width: 300,
+      height: Get.height * 0.2,
+      width: Get.width * 0.8,
       child: child,
     );
   }
@@ -45,17 +46,17 @@ class MealDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        iconTheme: IconThemeData(color: Color(0xff044404)),
+        iconTheme: IconThemeData(color: Colors.indigo),
         title: Text(
           '${selectedMeal.title}',
-          style: TextStyle(color: Color(0xff044404)),
+          style: TextStyle(color: Colors.indigo),
         ),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             Container(
-              height: 300,
+              height: Get.height * 0.35,
               width: double.infinity,
               child: Image.network(
                 selectedMeal.imageUrl,
@@ -66,7 +67,7 @@ class MealDetailScreen extends StatelessWidget {
             buildContainer(
               ListView.builder(
                 itemBuilder: (ctx, index) => Card(
-                  color: Theme.of(context).accentColor,
+                  color: Colors.indigo,
                   child: Padding(
                       padding: EdgeInsets.symmetric(
                         vertical: 5,
@@ -74,7 +75,7 @@ class MealDetailScreen extends StatelessWidget {
                       ),
                       child: Text(
                         selectedMeal.ingredients[index],
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: Colors.black, fontSize: 17.5),
                       )),
                 ),
                 itemCount: selectedMeal.ingredients.length,
@@ -87,13 +88,16 @@ class MealDetailScreen extends StatelessWidget {
                   children: [
                     ListTile(
                       leading: CircleAvatar(
+                        backgroundColor: Colors.indigo,
                         child: Text('# ${(index + 1)}'),
                       ),
                       title: Text(
                         selectedMeal.steps[index],
                       ),
                     ),
-                    Divider()
+                    Divider(
+                      thickness: 3,
+                    )
                   ],
                 ),
                 itemCount: selectedMeal.steps.length,
@@ -103,6 +107,7 @@ class MealDetailScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.indigo,
         child: Icon(
           isFavorite(mealId) ? Icons.star : Icons.star_border,
         ),

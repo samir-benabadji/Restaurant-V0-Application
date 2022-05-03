@@ -45,18 +45,20 @@ class _TabsScreenState extends State<TabsScreen> {
       appBar: AppBar(
         title: Text(
           _pages[_selectedPageIndex]['title'],
-          style: TextStyle(color: Color(0xff044404)),
+          style: TextStyle(color: Colors.indigo),
         ),
-        iconTheme: IconThemeData(color: Color(0xff044404)),
+        iconTheme: IconThemeData(color: Colors.indigo),
         backgroundColor: Colors.black,
       ),
       drawer: MainDrawer(),
       body: _pages[_selectedPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
+        selectedLabelStyle: TextStyle(fontSize: 15),
+        unselectedLabelStyle: TextStyle(fontSize: 12.5),
         onTap: _selectPage,
-        backgroundColor: Color(0xff044404),
-        unselectedItemColor: Colors.white38,
-        selectedItemColor: Colors.white,
+        backgroundColor: Colors.indigo,
+        unselectedItemColor: Colors.black54,
+        selectedItemColor: Colors.black,
         currentIndex: _selectedPageIndex,
         // type: BottomNavigationBarType.fixed,
         items: [
